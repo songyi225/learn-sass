@@ -1,0 +1,60 @@
+@use 'sass:color';
+
+// 플로우 컨트롤
+@mixin size($width, $height: null, $rounded: null) {
+  width: $width;
+  @if $height != null {
+    height: $height;
+  } @else {
+    height: $width;
+  }
+
+  @if $rounded == sm {
+    border-radius: 2px;
+  } @else if $rounded == md {
+    border-radius: 4px;
+  } @else if $rounded == lg {
+    border-radius: 6px;
+  } @else if $rounded == xl {
+    border-radius: 8px;
+  } @else {
+    border-radius: $rounded;
+  }
+}
+
+@mixin font($font-size: 16, $until-font-size: 24){
+  @while $font-size <= $until-font-size {
+
+    .font-size-#{$font-size} {
+      font-size: #{$font-size}px;
+      line-height: #{$font-size + 2}px;
+      letter-spacing: 1px;
+    }
+
+    $font-size: $font-size + 2;
+  }
+}
+
+@mixin colorScale($color, $selector){
+	@for $i from 1 through 5 {
+		#{$selector}:nth-child(#{$i}) {
+			background-color: color.scale($color, $lightness: $i * 10%);
+		}
+	}
+}
+
+$icons: search more arrow plus dot-circle;
+
+@each $icon in $icons{
+	.icon-#{$icon}{
+    background: url(/images/icons/#{$icon}.svg) no-repeat 0 0;
+  }
+}
+
+.box{
+  @include size(100px, 50px, xl);
+
+  @include colorScale(#000000, '.item');
+}
+
+@include font(12, 30);

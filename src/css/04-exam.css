@@ -1,0 +1,45 @@
+.box {
+  padding-left: 20px;
+  padding-inline-start: 20px;
+  padding-right: 20px;
+  padding-inline-end: 20px;
+}
+
+.container {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: circle(0);
+  width: 1px;
+  inline-size: 1px;
+  height: 1px;
+  block-size: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.notification {
+  position: sticky;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+@supports not (position: sticky) {
+  .notification {
+    position: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .box {
+    background: yellow;
+  }
+}
+@media (min-width: 768px) {
+  .box {
+    background: pink;
+  }
+}

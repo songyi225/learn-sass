@@ -1,0 +1,15 @@
+.button--green, .button--blue, .button--red {
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  padding: 12px 8px;
+}
+
+.button--red {
+  background-color: pink;
+}
+.button--blue {
+  background-color: blue;
+}
+.button--green {
+  background-color: green;
+}
